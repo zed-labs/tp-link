@@ -7,32 +7,30 @@ Python code credit to:  https://github.com/softScheck/tplink-smartplug/blob/mast
 Edit tp-GetAllDevices to reflect the IP or DNS names of your devices on the network.
 
 ## Get device info ##
-tp-GetInfo -Device Light1
+`tp-GetInfo -Device Light1`
 
 ## Get info, all devices ##
-tp-GetInfo
+`tp-GetInfo`
 
 ## Get current power state of all devices ##
-tp-GetPowerState
+`tp-GetPowerState`
 
 ## Turn on a device ##
-tp-SetPowerState -Device Light1 -State On
+`tp-SetPowerState -Device Light1 -State On`
 
 ## Turn off a device ##
-tp-SetPowerState -Device Light1 -State Off
+`tp-SetPowerState -Device Light1 -State Off`
 
 ## Get monthly power usage ##
-tp-GetMonthlyHistory -Device Light1
+`tp-GetMonthlyHistory -Device Light1`
 
 ## Get daily power usage ##
-tp-GetDailyHistory -Device Light1
+`tp-GetDailyHistory -Device Light1`
 
 ## Kasa examples ##
 Connect to Kasa...
-
-tp-KasaConnect -Credential (Get-Credential)
+`tp-KasaConnect -Credential (Get-Credential)`
 
 Get Kasa registered devices
-
-tp-GetKasaDevice
+`tp-GetKasaDevice`
 
