@@ -2,14 +2,10 @@ Function tp([string]$Name){
 	Get-Command -Module tp | Where {$_.Name -like "*$Name*"}
 }
 Function tp-KasaConnect($Credential){
-	if (! $Credential){
-		$Vaulted = vault-get -Type kasa -Username (vault-get -Type kasa).UserName
-		if ($Vaulted){$Credential = $Vaulted}else{return "`nSyntax error, requires -Credential (or a vaulted 'kasa' credential)`n"}
-	}
+	if (! $Credential){return "`nSyntax error, requires -Credential`n"}
 	$uri = 'https://wap.tplinkcloud.com'
 	$uid = (New-Guid).guid
 	$Body = "{'method': 'login','params': {'appType': 'Kasa_Android','cloudUserName': '$($Credential.UserName)','cloudPassword': '$($Credential.GetNetworkCredential().Password)','terminalUUID': $uid }}"
-
 	Write-Host "Getting token..." -NoNewLine
 	$Session = Invoke-WebRequest -Uri $uri -Method POST -Body $Body -ContentType 'application/json' | Select -ExpandProperty Content | ConvertFrom-Json
 	$Token = $Session | Select -ExpandProperty Result | Select -ExpandProperty Token
@@ -33,7 +29,7 @@ Function tp-GetPython(){
 	return "$((Get-Module tp) | Select -ExpandProperty ModuleBase)`\tp.py"	
 }
 Function tp-GetAllDevices(){
-	$Devices = 'Light1','Light2','AirStone','Water','OfficeLamp','HallLight','Internet','ghjfg' | Sort
+	$Devices = 'Light1','Light2','OfficeLamp','HallLight' | Sort
 	return $Devices
 }
 Function tp-GetInfo($Device){
