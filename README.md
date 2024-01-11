@@ -1,5 +1,5 @@
 # tp-link
-Powershell module to manage tp-link smart plugs.
+Powershell module to manage tp-link smart plugs, such as the HS110.
 
 Python required.
 Python code credit to:  https://github.com/softScheck/tplink-smartplug/blob/master/tplink_smartplug.py
