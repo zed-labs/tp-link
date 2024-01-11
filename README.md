@@ -29,8 +29,10 @@ tp-GetDailyHistory -Device Light1
 
 ## Kasa examples ##
 Connect to Kasa...
+
 tp-KasaConnect -Credential (Get-Credential)
 
 Get Kasa registered devices
+
 tp-GetKasaDevice
 
